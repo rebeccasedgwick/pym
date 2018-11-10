@@ -4,40 +4,13 @@ class Counter(object):
         self.high = high
 
     def __iter__(self):
-        'Returns itself as an iterator object'
-        return self
+        current = self.current
+        while self.high >= current:
+            yield current
+            current += 1
 
-    def __next__(self):
-        'Returns the enxt value, whilst current is lower than high value'
-        if self.current > self.high:
-            raise StopIteration
-        else:
-            self.current += 1
-            return self.current - 1
-
-# Example use:
-#   counter = Counter(2,10)
-#   for i in counter:
-#       print(i, end=' ')
+# This version, using __iter__ allows reueable obj as the counter has no state
+# given_obj = Counter(2, 10)
 #
-# >>> 2 3 4 5 6 7
-#
-# or:
-#
-# iterator = iter(c)
-#
-# while True:
-#     try:
-#         x = iterator.__next__()
-#         print(x, end=' ')
-#     except StopIteration as e:
-#         break
-
-
-def counter_generator(low, high):
-    while low <= high:
-        yield low
-        low += 1
-
-#   for i in counter_generator(2,10):
-#       print(i, end=' ')
+# for num in given_obj:
+#     print(num, end='')
