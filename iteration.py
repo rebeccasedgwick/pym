@@ -32,3 +32,12 @@ class Counter(object):
 #         print(x, end=' ')
 #     except StopIteration as e:
 #         break
+
+
+def counter_generator(low, high):
+    while low <= high:
+        yield low
+        low += 1
+
+#   for i in counter_generator(2,10):
+#       print(i, end=' ')
