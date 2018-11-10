@@ -1,5 +1,5 @@
-import os
-import os.path
+# import os
+# import os.path
 # os.path can be used to check if filename already exists in current directory
 import requests
 
