@@ -15,9 +15,19 @@ class Account(object):
         "Converts GBP balance to USD"
         return self.__balance * self.usd_rate
 
-    @property
+    @balance.setter
     def set_balance(self, value):
         if value < 0:
             print("Please enter a positive value to set the account balance.")
             return
         self.__balance = value
+
+
+if __name__ == '__main__':
+    account = Account(usd_rate=1.2975)
+    account.set_balance = 3000
+    print("Balance in GBP:", account.balance)
+    print("Balance in USD:", account.convert)
+    print("...trying to set negative account balance...")
+    account.set_balance = -5000
+    print("Balance in GBP:", account.balance)
